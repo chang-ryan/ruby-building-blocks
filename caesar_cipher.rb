@@ -26,4 +26,7 @@ end
 
 cipher("What a string!", 5)
 
+# => "bmfy f xywnsl!"
+
+# NOTES: 
 # A-Z 65-90, a-z 97-122
