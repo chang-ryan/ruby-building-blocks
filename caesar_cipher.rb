@@ -9,7 +9,7 @@ def cipher(input, shift)
     
     num_array.each_index do |y|
         if num_array[y] >= 97 and num_array[y] <= 122
-            if num_array[y] + shift > 122
+            if num_array[y] + (shift % 26) > 122
                 num_array[y] = num_array[y] + shift - 26
             else 
                 num_array[y] = num_array[y] + shift
