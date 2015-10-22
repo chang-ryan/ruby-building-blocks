@@ -1,5 +1,6 @@
-def cipher(input, shift)
+def cipher(input, shift_factor)
     
+    shift = shift_factor % 26
     num_array = []
     letter_array = []
     
@@ -9,7 +10,7 @@ def cipher(input, shift)
     
     num_array.each_index do |y|
         if num_array[y] >= 97 and num_array[y] <= 122
-            if num_array[y] + (shift % 26) > 122
+            if num_array[y] + shift > 122
                 num_array[y] = num_array[y] + shift - 26
             else 
                 num_array[y] = num_array[y] + shift
@@ -24,7 +25,7 @@ def cipher(input, shift)
     letter_array.join
 end
 
-cipher("What a string!", 5)
+cipher("What a string!", 26+5)
 
 # => "bmfy f xywnsl!"
 
