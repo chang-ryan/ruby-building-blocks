@@ -3,8 +3,6 @@
 
 def stock_picker(prices)
 
-    result = []
-    profits = []
     buy = 0
     sell = 0
     max = 0
