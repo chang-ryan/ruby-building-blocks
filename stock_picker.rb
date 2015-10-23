@@ -20,6 +20,10 @@ def stock_picker(prices)
     [buy, sell]
 end
 
-#        DAY  0  1 2 3 4  5 6 7 8
-stock_picker([17,3,6,9,15,8,6,1,10])
+#             DAY  0  1 2 3 4  5 6 7 8
+puts stock_picker([17,3,6,9,15,8,6,1,10])
 # => [1,4] aka buy at $3 and sell at $15 for optimal $12 profit
+
+#             DAY  0 1  2 3  4  5 6 7 8
+puts stock_picker([3,10,3,10,10,8,6,9,10])
+# => [0,1] aka buy at $3 and sell at $10 for optimal $7 profit
