@@ -4,7 +4,8 @@
 
 def stock_picker(prices)
   max_diff = 0
-  result = []
+  result_prices = []
+  result_indices = []
   
   prices.each_with_index do |x,i|
   	current_max = prices[i..-1].max
@@ -12,25 +13,27 @@ def stock_picker(prices)
   	  current_max_diff = current_max - x
   	  if current_max_diff > max_diff
   	    max_diff = current_max_diff
-  	    result << x
-  	    result << current_max
+  	    result_prices << x
+  	    result_prices << current_max
+  	    result_indices << i
+  	    result_indices << prices.find_index(current_max)
   	  end
   	end
   end
 
-  result
+  [] << result_indices << result_prices
 end
 
+#           DAY 0  1 2 3 4  5 6 7 8
 p stock_picker([17,3,6,9,15,8,6,1,10])
-# => [3,15] aka buy at $3 and sell at $15 for optimal $12 profit
+# => [[1, 4], [3, 15]] aka buy at $3 (day 1) and sell at $15 (day 4) for optimal $12 profit
 
-
+#           DAY 0 1  2 3  4  5 6 7 8
 p stock_picker([3,10,3,10,10,8,6,9,10])
-# => [3,10] aka buy at $3 and sell at $10 for optimal $7 profit
+# => [[0, 1], [3, 10]] aka buy at $3 (day 0) and sell at $10 (day 1) for optimal $7 profit
 
 
-# accepts an array of prices
-# returns the greatest difference as an integer
+# version 2
 
 def largest_diff(arr)
   smallest_value = arr.first
@@ -48,4 +51,3 @@ def largest_diff(arr)
 end
 
 p largest_diff([17,3,6,9,15,8,6,1,10])
-# => 12 aka 15-3 = 12
