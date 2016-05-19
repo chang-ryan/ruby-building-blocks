@@ -3,17 +3,18 @@
 # version 1
 
 def stock_picker(prices)
-  test_array = prices.dup
   max_diff = 0
   result = []
   
   prices.each_with_index do |x,i|
-  	test_array.delete(x) if x == test_array.max and test_array.size != 1
-  	
-  	if max_diff < test_array.max - x
-  	  max_diff = test_array.max - x
-  	  result << x
-  	  result << test_array.max
+  	current_max = prices[i..-1].max
+  	unless x == current_max
+  	  current_max_diff = current_max - x
+  	  if current_max_diff > max_diff
+  	    max_diff = current_max_diff
+  	    result << x
+  	    result << current_max
+  	  end
   	end
   end
 
@@ -28,7 +29,8 @@ p stock_picker([3,10,3,10,10,8,6,9,10])
 # => [3,10] aka buy at $3 and sell at $10 for optimal $7 profit
 
 
-# version 2
+# accepts an array of prices
+# returns the greatest difference as an integer
 
 def largest_diff(arr)
   smallest_value = arr.first
@@ -46,3 +48,4 @@ def largest_diff(arr)
 end
 
 p largest_diff([17,3,6,9,15,8,6,1,10])
+# => 12 aka 15-3 = 12
