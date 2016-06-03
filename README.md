@@ -1,4 +1,3 @@
 # Ruby Building Blocks
-# http://www.theodinproject.com/ruby-programming/building-blocks
 
-Some classic "intro to programming" exercises/projects
+Some classic "intro to programming" exercises/projects including a few that were pulled from (The Odin Project)[http://www.theodinproject.com/ruby-programming/building-blocks].
