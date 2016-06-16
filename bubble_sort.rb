@@ -1,4 +1,4 @@
-def bubblesort(numbers)
+def bubble_sort(numbers)
     swapped = true
 
     while swapped
@@ -14,7 +14,7 @@ def bubblesort(numbers)
     numbers
 end
 
-p bubblesort([99,4,3,78,2,0,2])
+p bubble_sort([99,4,3,78,2,0,2])
 # => [0,2,2,3,4,78,99]
 
 def bubble_sort_by(list)
