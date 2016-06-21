@@ -35,19 +35,17 @@ p stock_picker([3,10,3,10,10,8,6,9,10])
 
 # version 2
 
-def largest_diff(arr)
-  smallest_value = arr.first
-  maximum_diff = 0
-  
-  arr.each do |current_value|    
-    current_diff = current_value - smallest_value
-    
-    maximum_diff = current_diff > maximum_diff ? current_diff : maximum_diff
-    
-    smallest_value = current_value < smallest_value ? current_value : smallest_value  
+def stock_picker2(array) 
+  max_diff = 0
+  min = array[0]
+
+  array.each_with_index do |val, idx|
+    diff = val - min
+    max_diff = diff if diff > max_diff
+    min = val if val < min
   end
-  
-  maximum_diff
+
+  max_diff
 end
 
-p largest_diff([17,3,6,9,15,8,6,1,10])
+p stock_picker2([17,3,6,9,15,8,6,1,10])
